@@ -6,6 +6,6 @@
 # oblig2/ i containeren, så den blander seg ikke med oblig 1.
 
 resource_group_name  = "rg-tfstate-piaeb"
-storage_account_name = "sttfpiaeb"
+storage_account_name = "sapiaeb"
 container_name       = "tfstate"
 use_azuread_auth     = true
