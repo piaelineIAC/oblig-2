@@ -18,19 +18,20 @@ data "azurerm_virtual_network" "existing" {
   resource_group_name = data.azurerm_resource_group.existing.name
 }
 
-resource "azurerm_resource_group" "this" {
-  name     = "rg-${var.kortnavn}-oblig2-${var.miljo}"
-  location = var.location
-  tags     = local.tags
+removed {
+  from = azurerm_resource_group.this
+
+  lifecycle {
+    destroy = false
+  }
 }
 
-module "vnet" {
-  source              = "../../modules/vnet"
-  name                = "vnet-${var.kortnavn}-${var.miljo}"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = azurerm_resource_group.this.location
-  address_space       = var.address_space
-  tags                = local.tags
+removed {
+  from = module.vnet
+
+  lifecycle {
+    destroy = false
+  }
 }
 
 module "subnet" {
@@ -39,7 +40,7 @@ module "subnet" {
 
   service             = each.key
   resource_group_name = data.azurerm_resource_group.existing.name
-  location            = data.azurerm_resource_group.existing.location
+  location            = var.location
   vnet_name           = data.azurerm_virtual_network.existing.name
   prefix              = each.value.prefix
   delegate_web        = each.value.runtime == "webapp"
