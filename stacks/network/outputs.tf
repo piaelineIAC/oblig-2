@@ -15,7 +15,7 @@ output "vnet_name" {
 
 output "subnet_ids" {
   description = "Subnett-ID per tjeneste."
-  value       = { for navn, s in data.azurerm_subnet.existing : navn => subnett.id }
+  value       = { for navn, subnett in data.azurerm_subnet.existing : navn => subnett.id }
 }
 
 output "resource_group_id" {
