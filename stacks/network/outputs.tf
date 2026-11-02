@@ -25,5 +25,5 @@ output "resource_group_id" {
 
 output "vnet_id" {
   description = "VNet-IDen til det delte VNet-et."
-  value       = module.vnet.vnet_id
+  value       = module.vnet.id
 }
