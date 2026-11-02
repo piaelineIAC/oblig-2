@@ -40,7 +40,7 @@ module "subnet" {
 
   service             = each.key
   resource_group_name = data.azurerm_resource_group.existing.name
-  location            = data.azurerm_resource_group.existing.location
+  location            = var.location
   vnet_name           = data.azurerm_virtual_network.existing.name
   prefix              = each.value.prefix
   delegate_web        = each.value.runtime == "webapp"
