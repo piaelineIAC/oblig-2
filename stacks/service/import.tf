@@ -63,7 +63,7 @@ import {
   for_each = var.runtime == "webapp" ? toset(["webapp"]) : toset([])
 
   to = module.webapp[0].azurerm_service_plan.this
-  id = "${local.resource_group_id}/providers/Microsoft.Web/serverfarms/asp-${var.tjeneste}"
+  id = "${local.resource_group_id}/providers/Microsoft.Web/serverFarms/asp-${var.tjeneste}"
 }
 
 import {
