@@ -80,3 +80,14 @@ variable "state_container_name" {
   description = "Containeren som inneholder state-filene."
   type        = string
 }
+
+variable "extra_rules" {
+  description = "Ekstra regler for NSG-en til tjenesten."
+  type = list(object({
+    name     = string
+    priority = number
+    port     = number
+    source   = string
+  }))
+  default = []
+}
