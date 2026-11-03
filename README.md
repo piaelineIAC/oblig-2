@@ -1,5 +1,10 @@
 # Oblig 2 – utgangspunktet
 
+## Struktur etter migrering og endringsordrer
+
+Infrastrukturen er nå delt vertikalt. Beskrivelsen under dokumenterer
+det opprinnelige utgangspunktet.
+
 To tjenester, `ordre` og `meny`, rullet ut i dev og prod. Infrastrukturen er
 delt **horisontalt**: én stack per lag, og hver stack dekker begge tjenestene.
 
